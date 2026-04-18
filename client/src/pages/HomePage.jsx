@@ -13,6 +13,8 @@ const CATEGORIES = [
   { name: 'Sports', icon: '⚽', img: 'https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=400' },
 ];
 
+let visitTracked = false;
+
 export default function HomePage() {
   const [featured, setFeatured] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -22,6 +24,10 @@ export default function HomePage() {
 
   useEffect(() => {
     api.get('/products/featured').then(({ data }) => setFeatured(data)).finally(() => setLoading(false));
+    if (!visitTracked) {
+      visitTracked = true;
+      api.post('/visitors/track').catch(() => {});
+    }
   }, []);
 
   return (

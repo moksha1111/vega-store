@@ -19,6 +19,7 @@ import DashboardPage from './pages/admin/DashboardPage';
 import AdminProductsPage from './pages/admin/AdminProductsPage';
 import AdminOrdersPage from './pages/admin/AdminOrdersPage';
 import AdminUsersPage from './pages/admin/AdminUsersPage';
+import AdminVisitorsPage from './pages/admin/AdminVisitorsPage';
 
 function ShopLayout({ children }) {
   return (
@@ -52,6 +53,7 @@ export default function App() {
               <Route path="products" element={<AdminProductsPage />} />
               <Route path="orders" element={<AdminOrdersPage />} />
               <Route path="users" element={<AdminUsersPage />} />
+              <Route path="visitors" element={<AdminVisitorsPage />} />
             </Route>
           </Routes>
         </CartProvider>
